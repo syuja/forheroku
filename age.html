@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>VocabularyEnhancements/age</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -18,10 +18,39 @@
       }
     }
   </script>
+  <style>
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+</style>
 </head>
 
 <body>
-
+<ul class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="age.html">Age</a></li>
+  <li><a href="gender.html">Gender</a></li>
+  <li><a href="home1.html">Search</a></li>
+</ul>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Vocab</a>
@@ -54,11 +83,8 @@
         <input type="submit" value="Submit">
       </form>
 
-      <div class="form-group">
-        <label for="email">Input your age</label>
-        <input type="number" min="1" max="150" class="form-control" id="age" placeholder="35">
-      </div>
-
+      
+      <a href="index.html" class="btn btn-success" float="right">Go Back</a>
       <a href="gender.html" class="btn btn-success" float="right">Save and Continue</a>
     </div>
 

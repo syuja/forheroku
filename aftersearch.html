@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -9,49 +10,106 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Vocab</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+  <br>
   <div class="container">
-  <a class="navbar-brand" href="#">Vocab</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-    </ul>
-  </div>
-</div>
-</nav>
-
-<br>
-<br>
-<div class="container">
-  <br>
-  <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Cater" aria-label="Search">
+    <br>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" id="searchText" type="search" placeholder="Cater" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-  <br>
+    </form>
+    <br>
 
-  <h3>
-    Cater
-  </h3> 
-  <button type="button" class="btn btn-light">Add to list</button>
-  <p class="font-weight-light">ca·ter ˈkādər </p>
+    <h3 id="header">
+      Cater
+    </h3>
+    <button type="button" class="btn btn-light">Add to list</button>
+    <p id="pronunciation" class="font-weight-light">ca·ter ˈkādər </p>
+    <div>
+      <p id="meaning">To cater means to supply food for meetings or celebrations. If you're having a big barbecue
+        party but would
+        rather hang out with your friends than grill, you could pay someone to cater it.</p>
+      <p id="sentence">E.g.: The food at the concert gave me an upset stomach. They must have hired awful caterers.</p>
+    </div>
 
-  <div>
-    <p>To cater means to supply food for meetings or celebrations. If you're having a big barbecue party but would rather hang out with your friends than grill, you could pay someone to cater it.</p>
 
-    E.g.: The food at the concert gave me an upset stomach. They must have hired awful caterers.
   </div>
+  <script>
+    var m = getCookieValue("searchWord");
+    // window.alert("getCookie: " + m);
+    console.log("getCookie: " + m);
+    url_request = "https://api.dictionaryapi.dev/api/v2/entries/en/" + m;
+    // window.alert("url: " + url_request);
+    console.log("url: " + url_request);
+
+    document.getElementById("searchText").value = m;
+    // setting inner html - https://www.w3schools.com/jsref/prop_html_innerhtml.asp
+    document.getElementById("header").innerHTML = m;
+
+    // https://www.w3schools.com/js/js_cookies.asp - extract cookie value
+    function getCookieValue(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
 
 
-</div>
+    // DICTIONARY LOOKUP - 
+    var meaning, pronunciation, sentence;
+    // window.alert("hitting the dictionary api....");
+    console.log("hitting the dictionary api....");
+    fetch(url_request)
+      .then(response => response.json())
+      .then(data => {
+        var firstDefinition = data[0];
+        pronunciation = firstDefinition.phonetic;
+        meaning = firstDefinition.meanings[0].definitions[0].definition;
+        sentence = firstDefinition.meanings[0].definitions[0].example;
 
+        console.log(data[0]);
+        console.log("phonetic: " + pronunciation);
+        console.log("meaning: " + meaning);
+        console.log("sentence: " + sentence);
+
+        document.getElementById("pronunciation").innerHTML = pronunciation;
+        document.getElementById("meaning").innerHTML = meaning;
+        document.getElementById("sentence").innerHTML = "E.g.: " + sentence;
+      });
+
+
+
+  </script>
 </body>
+
 </html>

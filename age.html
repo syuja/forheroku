@@ -11,11 +11,12 @@
   <script>
 function validateForm() {
   var x = document.forms["myForm"]["age"].value;
-  if (x == null) {
+  if (x == "" || x == null) {
     alert("Field should not be empty");
     return false;
   }
 }
+</script>
 </head>
 <body>
 

@@ -8,6 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+function validateForm() {
+  var x = document.forms["myForm"]["age"].value;
+  if (x == null) {
+    alert("Field should not be empty");
+    return false;
+  }
+}
 </head>
 <body>
 
@@ -32,13 +40,16 @@
 <br>
 <div class="container">
 
+
   <h3>
     How old are you?
   </h3>
+<div class="form-group">
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+  Age: <input type="number" size="3" name="age" min="6" max="99" value="21">
+  <input type="submit" value="Submit">
+</form>
 
-  <div class="form-group">
-    <label for="email">Input your age</label>
-    <input type="text" class="form-control" id="age">
   </div>
 
   <a href="gender.html" class="btn btn-success" float="right">Save and Continue</a>

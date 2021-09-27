@@ -30,11 +30,11 @@
           </div>
         </div>
         <div class="suggestion-wrap">
-          <span>Dedication</a></span>
-          <span id>Excelsior</span>
-          <span>Apropos</span>
-          <span>Consort</span>
-          <span>Pragmatic</span>
+          <span id="span1" onclick="spanSearch('dedication')">Dedication</span>
+          <span id="span2" onclick="spanSearch('excelsior')">Excelsior</span>
+          <span id="span3" onclick="spanSearch('apropos')">Apropos</span>
+          <span id="span4" onclick="spanSearch('consort')">Consort</span>
+          <span id="span5" onclick="spanSearch('pragmatic')">Pragmatic</span>
         </div>
       </fieldset>
     </form>
@@ -50,6 +50,18 @@
       var searchText = textBox.value;
       // window.alert("search_text: " + searchText);
       document.cookie = "searchWord=" + searchText + ";";
+      // window.alert('cookie set!: ' + document.cookie);
+      var m = document.cookie;
+      // window.alert("cookie: " + m);
+      // go to the aftersearch html page: 
+      document.location.href = "aftersearch.html";
+      return false; 
+    }
+
+
+    function spanSearch(searchValue){
+      // window.alert("spanSearch value: " + searchValue);
+      document.cookie = "searchWord=" + searchValue + ";";
       // window.alert('cookie set!: ' + document.cookie);
       var m = document.cookie;
       // window.alert("cookie: " + m);

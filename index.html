@@ -5,8 +5,31 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <h3>Vocabulary enhancement</h3>
-  <br>
+  <h1>Vocabulary enhancement</h1>
+  <style>
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+</style>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -23,6 +46,12 @@
 </head>
 
 <body>
+  <ul class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="age.html">Age</a></li>
+  <li><a href="gender.html">Gender</a></li>
+  <li><a href="home.html">Search</a></li>
+</ul>
 
   <div class="content">
     <div class="container">
@@ -31,6 +60,7 @@
           <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
           <br>
           <h4>About</h4>
+          <br>
           <h7>It is an application where the user introduces their preferences to the application, it will ask the user
             for age and preferences as the initial input. The user will be able to search for the words on the
             application, and reach a page where the meanings are displayed. </h7>

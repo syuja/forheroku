@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>VocabularyEnhancements/age</title>
+  <title>VocabularyEnhancements/Age</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -19,39 +19,43 @@
     }
   </script>
   <style>
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-</style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-<ul class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="age.html">Age</a></li>
-  <li><a href="gender.html">Gender</a></li>
-  <li><a href="interest.html">Interest</a></li>
-  <li><a href="home.html">Search</a></li>
-</ul>
+  <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="age.html">Age</a></li>
+    <li><a href="gender.html">Gender</a></li>
+    <li><a href="interest.html">Interest</a></li>
+    <li><a href="home.html">Search</a></li>
+  </ul>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Vocab</a>
@@ -76,14 +80,15 @@ ul.breadcrumb li a:hover {
       Enter age and click submit
     </h3>
     <div class="form-group">
-      <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+      <form name="myForm" action="gender.html" onsubmit="return validateForm()" method="post" required>
         Age: <input type="number" size="3" name="age" min="3" max="130" value="21">
-        <input type="submit" value="Submit">
+        <!-- <input type="submit" value="Submit"> -->
+        <br>
+        <br>
+        <a href="index.html" value="Go Back" class="btn btn-primary" float="right">Go Back</a>
+        <!-- <input type="button" value="Go Back" class="btn btn-primary" float="right"> -->
+        <input type="submit" value="Submit" class="btn btn-success" float="right">
       </form>
-<br>
-     
-      <a href="index.html" class="btn btn-primary" float="right">Go Back</a>
-      <a href="gender.html" class="btn btn-success" float="right">Save and Continue</a>
     </div>
 
 </body>

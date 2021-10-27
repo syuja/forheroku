@@ -3,6 +3,11 @@
 <head>
   <title>VocabularyEnhancements/Home</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     ul.breadcrumb {
       padding: 10px 16px;
@@ -46,7 +51,7 @@
     <li><a href="interest.html">Interest</a></li>
     <li><a href="home.html">Search</a></li>
   </ul>
-  <a href="gender.html" class="btn btn-primary" float="right">Go Back</a>
+  <!-- <a href="gender.html" class="btn btn-primary" float="right">Go Back</a> -->
   <div class="s006">
     <!-- click the search button: triggers searchFunction -->
     <!-- hit enter submits the form - does same thing as clicking search button -->
@@ -74,6 +79,10 @@
           <span id="span5" onclick="spanSearch('pragmatic')">Pragmatic</span>
         </div>
       </fieldset>
+      <br><br>
+      <div class="container">
+        <a href="interest.html" value="Go Back" class="btn btn-primary" float="left">Go Back</a>
+      </div>
     </form>
   </div>
   <div id="message"></div>
@@ -94,7 +103,6 @@
       document.location.href = "aftersearch.html";
       return false;
     }
-
 
     function spanSearch(searchValue) {
       // window.alert("spanSearch value: " + searchValue);

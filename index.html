@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <h1>Vocabulary enhancement</h1>
+  <h1>Vocabulary Enhancement</h1>
   <style>
     ul.breadcrumb {
       padding: 10px 16px;
@@ -47,16 +47,12 @@
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
 
-  <title>Vocabulary enhancement</title>
+  <title>Vocabulary Enhancement</title>
 </head>
 
 <body>
   <ul class="breadcrumb">
     <li><a href="index.html">Home</a></li>
-    <li><a href="age.html">Age</a></li>
-    <li><a href="gender.html">Gender</a></li>
-    <li><a href="interest.html">Interest</a></li>
-    <li><a href="home.html">Search</a></li>
   </ul>
 
   <div class="content">
@@ -79,15 +75,15 @@
                 <h3>Sign In</h3>
                 <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
               </div>
-              <form action="#" method="post">
+              <form name="fakeLogin" action="age.html" onsubmit="" method="post" required>
                 <div class="form-group first">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="username">
+                  <input type="text" class="form-control" id="username" name="username"  pattern="neeraj" title="Please use 'neeraj' for testing" required>
 
                 </div>
                 <div class="form-group last mb-4">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" name="password" pattern="4theGold!" title="Please use '4theGold!' for testing" required>
 
                 </div>
 
@@ -99,9 +95,9 @@
                   <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                 </div>
 
+                <input type="submit" value="Log In" class="btn btn-block btn-primary">
 
-                <a href="age.html" class="btn btn-block btn-primary">Log In </a>
-
+                <!-- <a href="age.html" class="btn btn-block btn-primary">Log In </a> -->
                 <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
 
                 <div class="social-login">
@@ -124,7 +120,6 @@
       </div>
     </div>
   </div>
-
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/popper.min.js"></script>

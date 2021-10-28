@@ -5,30 +5,34 @@
   <title>VocabularyEnhancements/AfterSearch</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-      <style>
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-</style>
+  <style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+  </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -36,13 +40,13 @@ ul.breadcrumb li a:hover {
 </head>
 
 <body>
-<ul class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="age.html">Age</a></li>
-  <li><a href="gender.html">Gender</a></li>
-  <li><a href="interest.html">Interest</a></li>
-  <li><a href="home.html">Search</a></li>
-</ul>
+  <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="age.html">Age</a></li>
+    <li><a href="gender.html">Gender</a></li>
+    <li><a href="interest.html">Interest</a></li>
+    <li><a href="home.html">Search</a></li>
+  </ul>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">Vocab Enhancement</a>
@@ -50,7 +54,7 @@ ul.breadcrumb li a:hover {
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-   
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
@@ -61,15 +65,15 @@ ul.breadcrumb li a:hover {
       </div>
     </div>
   </nav>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<!-- <a href="home.html" class="btn btn-primary" float="right">Go Back</a> -->
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <!-- <a href="home.html" class="btn btn-primary" float="right">Go Back</a> -->
   <br>
- 
+
   <div class="container">
     <br>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" id="searchText" type="search" placeholder="Cater" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="hitSearch()">Search</button>
     </form>
     <br>
 
@@ -97,9 +101,12 @@ ul.breadcrumb li a:hover {
     // window.alert("url: " + url_request);
     console.log("url: " + url_request);
 
+    // replace the information based on the retrieved cookie
     document.getElementById("searchText").value = m;
-    // setting inner html - https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     document.getElementById("header").innerHTML = m;
+
+    // 
+    dictionaryLookUp(url_request);
 
     // https://www.w3schools.com/js/js_cookies.asp - extract cookie value
     function getCookieValue(cname) {
@@ -118,30 +125,42 @@ ul.breadcrumb li a:hover {
       return "";
     }
 
+    // someone hit enter or search button <== reset the cookie
+    function hitSearch() {
+      var searchText = document.getElementById("searchText").value;
+      document.cookie = "searchWord=" + searchText + ";";
+      var m = document.cookie;
 
-    // DICTIONARY LOOKUP - 
-    var meaning, pronunciation, sentence;
-    // window.alert("hitting the dictionary api....");
-    console.log("hitting the dictionary api....");
-    fetch(url_request)
-      .then(response => response.json())
-      .then(data => {
-        var firstDefinition = data[0];
-        pronunciation = firstDefinition.phonetic;
-        meaning = firstDefinition.meanings[0].definitions[0].definition;
-        sentence = firstDefinition.meanings[0].definitions[0].example;
+      document.location.href = "aftersearch.html";
+      return false; 
 
-        console.log(data[0]);
-        console.log("phonetic: " + pronunciation);
-        console.log("meaning: " + meaning);
-        console.log("sentence: " + sentence);
-
-        document.getElementById("pronunciation").innerHTML = pronunciation;
-        document.getElementById("meaning").innerHTML = meaning;
-        document.getElementById("sentence").innerHTML = "E.g.: " + sentence;
-      });
+    }
 
 
+
+    function dictionaryLookUp(url_request) {
+      // DICTIONARY LOOKUP - 
+      var meaning, pronunciation, sentence;
+      // window.alert("hitting the dictionary api....");
+      console.log("hitting the dictionary api....");
+      fetch(url_request)
+        .then(response => response.json())
+        .then(data => {
+          var firstDefinition = data[0];
+          pronunciation = firstDefinition.phonetic;
+          meaning = firstDefinition.meanings[0].definitions[0].definition;
+          sentence = firstDefinition.meanings[0].definitions[0].example;
+
+          console.log(data[0]);
+          console.log("phonetic: " + pronunciation);
+          console.log("meaning: " + meaning);
+          console.log("sentence: " + sentence);
+
+          document.getElementById("pronunciation").innerHTML = pronunciation;
+          document.getElementById("meaning").innerHTML = meaning;
+          document.getElementById("sentence").innerHTML = "E.g.: " + sentence;
+        });
+    }
 
   </script>
 </body>

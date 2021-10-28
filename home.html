@@ -90,26 +90,21 @@
   <script>
     var textBox = document.getElementById("search_text");
 
+    // function set cookie and direct to next page.. next page reads the cookie and hits the rest api
     // function for searching the word... triggered by clicking or by hitting enter
     function searchToNextPage() {
       // get text in search bar
       var searchText = textBox.value;
-      // window.alert("search_text: " + searchText);
       document.cookie = "searchWord=" + searchText + ";";
-      // window.alert('cookie set!: ' + document.cookie);
       var m = document.cookie;
-      // window.alert("cookie: " + m);
       // go to the aftersearch html page: 
       document.location.href = "aftersearch.html";
       return false;
     }
 
     function spanSearch(searchValue) {
-      // window.alert("spanSearch value: " + searchValue);
       document.cookie = "searchWord=" + searchValue + ";";
-      // window.alert('cookie set!: ' + document.cookie);
       var m = document.cookie;
-      // window.alert("cookie: " + m);
       // go to the aftersearch html page: 
       document.location.href = "aftersearch.html";
       return false;
@@ -117,7 +112,6 @@
 
     // form submitted
     function hitEnter() {
-      // window.alert("hitEnter!!");
       searchToNextPage();
       event.preventDefault();
       return false;

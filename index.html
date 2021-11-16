@@ -46,22 +46,35 @@
 
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
-
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
     function validateForm() {
-      var username = document.forms["myForm"]["username"].value;
-      var password = document.forms["myForm"]["password"].value;
+      var username = document.forms["fakeLogin"]["username"].value;
+      var password = document.forms["fakeLogin"]["password"].value;
+
+      event.preventDefault();
+
       if (username == "" || username == null || password == "" || password == null) {
-        alert("Field should not be empty");
+        swal("Error!", "Username or Password cannot be empty", "error");
         return false;
       }
-      else if (username == "neeraj" || password == "4theGold!") {
+      else if (username == "neeraj" && password == "4theGold!") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
         return true;
-      } else if (username == "admin" || password == "4m#!Mte") {
+      } else if (username == "admin" && password == "4m#!Mte") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
         return true;
-      } else if (username == "test" || password == "t35t%$!") {
+      } else if (username == "test" && password == "t35t%$!") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
         return true;
       }
+      swal("Error!", "Invalid username or password!", "error");
       return false;
     }
 

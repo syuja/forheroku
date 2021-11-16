@@ -42,6 +42,16 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
   <link href="css/main.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+    function logOut() {
+      event.preventDefault();
+      swal("Logged out!", "You have logged out!", "success").then(function () {
+        window.location = "index.html";
+      });
+    }
+  </script>
 
 </head>
 
@@ -55,12 +65,12 @@
   </ul>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" >Vocab Enhancement</a>
-      <button style="font-size:18px" onclick="window.location.href='index.html'">Log out <i class="fa fa-sign-out"></i>
-  </div>
+      <a class="navbar-brand">Vocab Enhancement</a>
+      <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
+    </div>
   </nav>
 
- 
+
   <!-- <a href="gender.html" class="btn btn-primary" float="right">Go Back</a> -->
   <div class="s006">
     <!-- click the search button: triggers searchFunction -->

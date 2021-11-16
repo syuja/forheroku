@@ -1,47 +1,77 @@
 <html>
 
 <head>
+  <title>VocabularyEnhancements/Home</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      <style>
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="colorlib.com">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
   <link href="css/main.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+    function logOut() {
+      event.preventDefault();
+      swal("Logged out!", "You have logged out!", "success").then(function () {
+        window.location = "index.html";
+      });
+    }
+  </script>
+
 </head>
 
 <body>
   <ul class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="age.html">Age</a></li>
-  <li><a href="gender.html">Gender</a></li>
-  <li><a href="interest.html">Interest</a></li>
-  <li><a href="home.html">Search</a></li>
-</ul>
-  <a href="gender.html" class="btn btn-primary" float="right">Go Back</a>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="age.html">Age</a></li>
+    <li><a href="gender.html">Gender</a></li>
+    <li><a href="interest.html">Interest</a></li>
+    <li><a href="home.html">Search</a></li>
+  </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand">Vocab Enhancement</a>
+      <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
+    </div>
+  </nav>
+
+
+  <!-- <a href="gender.html" class="btn btn-primary" float="right">Go Back</a> -->
   <div class="s006">
     <!-- click the search button: triggers searchFunction -->
     <!-- hit enter submits the form - does same thing as clicking search button -->
@@ -51,13 +81,13 @@ ul.breadcrumb li a:hover {
         <legend>What are you looking for?</legend>
         <div class="inner-form">
           <div class="input-field">
-              <button class="btn-search" id="search_button" type="reset" onclick="searchToNextPage()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                  </path>
-                </svg>
-              </button>
+            <button class="btn-search" id="search_button" type="reset" onclick="searchToNextPage()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                </path>
+              </svg>
+            </button>
             <input id="search_text" type="text" placeholder="Cater">
           </div>
         </div>
@@ -69,6 +99,10 @@ ul.breadcrumb li a:hover {
           <span id="span5" onclick="spanSearch('pragmatic')">Pragmatic</span>
         </div>
       </fieldset>
+      <br><br>
+      <div class="container">
+        <a href="interest.html" value="Go Back" class="btn btn-primary" float="left">Go Back</a>
+      </div>
     </form>
   </div>
   <div id="message"></div>
@@ -76,39 +110,33 @@ ul.breadcrumb li a:hover {
   <script>
     var textBox = document.getElementById("search_text");
 
+    // function set cookie and direct to next page.. next page reads the cookie and hits the rest api
     // function for searching the word... triggered by clicking or by hitting enter
     function searchToNextPage() {
       // get text in search bar
       var searchText = textBox.value;
-      // window.alert("search_text: " + searchText);
       document.cookie = "searchWord=" + searchText + ";";
-      // window.alert('cookie set!: ' + document.cookie);
       var m = document.cookie;
-      // window.alert("cookie: " + m);
       // go to the aftersearch html page: 
       document.location.href = "aftersearch.html";
-      return false; 
+      return false;
     }
 
-
-    function spanSearch(searchValue){
-      // window.alert("spanSearch value: " + searchValue);
+    function spanSearch(searchValue) {
       document.cookie = "searchWord=" + searchValue + ";";
-      // window.alert('cookie set!: ' + document.cookie);
       var m = document.cookie;
-      // window.alert("cookie: " + m);
       // go to the aftersearch html page: 
       document.location.href = "aftersearch.html";
-      return false; 
+      return false;
     }
 
     // form submitted
-    function hitEnter(){
-      // window.alert("hitEnter!!");
+    function hitEnter() {
       searchToNextPage();
       event.preventDefault();
-      return false; 
+      return false;
     }
   </script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>

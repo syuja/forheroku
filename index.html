@@ -2,34 +2,39 @@
 <html lang="en">
 
 <head>
+  <title>VocabularyEnhancements/Index</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <h1>Vocabulary enhancement</h1>
+  <h1>Vocabulary Enhancement</h1>
   <style>
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-</style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+  </style>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -41,18 +46,56 @@ ul.breadcrumb li a:hover {
 
   <!-- Style -->
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    function validateForm() {
+      var username = document.forms["fakeLogin"]["username"].value;
+      var password = document.forms["fakeLogin"]["password"].value;
 
-  <title>Vocabulary enhancement</title>
+      event.preventDefault();
+
+      if (username == "" || username == null || password == "" || password == null) {
+        swal("Error!", "Username or Password cannot be empty", "error");
+        return false;
+      }
+      else if (username == "neeraj" && password == "4theGold!") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
+        return true;
+      } else if (username == "admin" && password == "4m#!Mte") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
+        return true;
+      } else if (username == "test" && password == "t35t%$!") {
+        swal("Login Success!", "You logged in!", "success").then(function () {
+          window.location = "age.html";
+        });
+        return true;
+      }
+      swal("Error!", "Invalid username or password!", "error");
+      return false;
+    }
+
+    function showPassword() {
+      var showPassword = document.getElementById("checkShowPassword");
+      var password = document.getElementById("password");
+      if (password.type === "password") {
+        password.type = "text";
+      } else {
+        password.type = "password";
+      }
+    }
+  </script>
+
+  <title>Vocabulary Enhancement</title>
 </head>
 
 <body>
   <ul class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="age.html">Age</a></li>
-  <li><a href="gender.html">Gender</a></li>
-  <li><a href="interest.html">Interest</a></li>
-  <li><a href="home.html">Search</a></li>
-</ul>
+    <li><a href="index.html">Home</a></li>
+  </ul>
 
   <div class="content">
     <div class="container">
@@ -72,17 +115,17 @@ ul.breadcrumb li a:hover {
             <div class="col-md-8">
               <div class="mb-4">
                 <h3>Sign In</h3>
-                <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
               </div>
-              <form action="#" method="post">
+              <form name="fakeLogin" action="age.html" onsubmit="return validateForm()" method="post" autocomplete="off"
+                required>
                 <div class="form-group first">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" id="username">
+                  <input type="text" class="form-control" id="username" name="username" required>
 
                 </div>
                 <div class="form-group last mb-4">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password">
+                  <input type="password" class="form-control" id="password" name="password" required>
 
                 </div>
 
@@ -93,10 +136,16 @@ ul.breadcrumb li a:hover {
                   </label>
                   <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                 </div>
+                <div class="d-flex mb-5 align-items-center">
+                  <label class="control control--checkbox mb-0"><span class="caption">Show password</span>
+                    <input type="checkbox" onclick="showPassword()" id="checkShowPassword" />
+                    <div class="control__indicator"></div>
+                  </label>
+                </div>
 
+                <input type="submit" value="Log In" class="btn btn-block btn-primary">
 
-                <a href="age.html" class="btn btn-block btn-primary">Log In </a>
-
+                <!-- <a href="age.html" class="btn btn-block btn-primary">Log In </a> -->
                 <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
 
                 <div class="social-login">
@@ -119,7 +168,6 @@ ul.breadcrumb li a:hover {
       </div>
     </div>
   </div>
-
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/popper.min.js"></script>

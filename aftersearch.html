@@ -2,12 +2,17 @@
 <html lang="en">
 
 <head>
-  <title>VocabularyEnhancements/AfterSearch</title>
-  <meta charset="utf-8">
+  <title>VocabEnhancement/AfterSearch</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     ul.breadcrumb {
-      padding: 10px 16px;
+      padding: 10px 80px;
       list-style: none;
       background-color: #eee;
     }
@@ -33,13 +38,16 @@
       text-decoration: underline;
     }
   </style>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script>
     function logOut() {
@@ -53,24 +61,24 @@
 </head>
 
 <body>
-  <ul class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- class container used flex which was throwing everything off -->
+  <!-- <div class="container" > -->
+     <i class='fas fa-clipboard-check' style='font-size:48px;color:#6c63ff;margin-right:10px;margin-left:40px;'></i>
+     <!-- <i class="material-icons" style='font-size:48px;color:#6c63ff;'>computer</i> -->
+     <a class="navbar-brand" style="font-size: 36px; font-family:Lucida Handwriting;">Vocab Enhancement</a>
+     <div class="container" ></div>
+     <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
+</div>
+</nav>
+  <ul class="breadcrumb" >
+    <li style="margin-left:40px;"><a href="index.html">Home</a></li>
     <li><a href="age.html">Age</a></li>
     <li><a href="gender.html">Gender</a></li>
     <li><a href="interest.html">Interest</a></li>
     <li><a href="home.html">Search</a></li>
   </ul>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" >Vocab Enhancement</a>
-      <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
-  </div>
-  </nav>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <!-- <a href="home.html" class="btn btn-primary" float="right">Go Back</a> -->
   <br>
-
   <div class="container">
     <br>
     <form class="form-inline my-2 my-lg-0">
@@ -82,17 +90,18 @@
     <h3 id="header">
       Cater
     </h3>
-    <button type="button" class="btn btn-light">Add to list</button>
-    <p id="pronunciation" class="font-weight-light">ca·ter ˈkādər </p>
+    <p id="pronunciation" class="font-weight-light"style="margin-left: 20px;" >ca·ter ˈkādər </p>
+   
     <div>
-      <p id="meaning">To cater means to supply food for meetings or celebrations. If you're having a big barbecue
+      <p id="meaning" style="margin-left: 20px;">To cater means to supply food for meetings or celebrations. If you're having a big barbecue
         party but would
         rather hang out with your friends than grill, you could pay someone to cater it.</p>
-      <p id="sentence">E.g.: The food at the concert gave me an upset stomach. They must have hired awful caterers.</p>
+      <p id="sentence" style="margin-left: 20px; color: #696969;font-style: italic;">"The food at the concert gave me an upset stomach. They must have hired awful caterers."</p>
     </div>
   </div>
   <br><br>
   <div class="container">
+    <button type="button" class="btn btn-secondary">Add to list</button>
     <a href="home.html" value="Go Back" class="btn btn-primary" float="left">Go Back</a>
   </div>
   <script>
@@ -160,7 +169,7 @@
 
           document.getElementById("pronunciation").innerHTML = pronunciation;
           document.getElementById("meaning").innerHTML = meaning;
-          document.getElementById("sentence").innerHTML = "E.g.: " + sentence;
+          document.getElementById("sentence").innerHTML = "\"" + sentence + "\"";
         });
     }
 

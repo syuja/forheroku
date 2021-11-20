@@ -2,89 +2,107 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
+  <title>VocabEnhancement/AfterSearch</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-      <style>
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
-  background-color: #eee;
-}
-ul.breadcrumb li {
-  display: inline;
-  font-size: 18px;
-}
-ul.breadcrumb li+li:before {
-  padding: 8px;
-  color: black;
-  content: "/\00a0";
-}
-ul.breadcrumb li a {
-  color: #0275d8;
-  text-decoration: none;
-}
-ul.breadcrumb li a:hover {
-  color: #01447e;
-  text-decoration: underline;
-}
-</style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    ul.breadcrumb {
+      padding: 10px 80px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="colorlib.com">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+  <link href="css/main.css" rel="stylesheet" />
+  
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <script>
+    function logOut() {
+      event.preventDefault();
+      swal("Logged out!", "You have logged out!", "success").then(function () {
+        window.location = "index.html";
+      });
+    }
+    </script>
+
 </head>
 
 <body>
-<ul class="breadcrumb">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="age.html">Age</a></li>
-  <li><a href="gender.html">Gender</a></li>
-  <li><a href="interest.html">Interest</a></li>
-  <li><a href="home.html">Search</a></li>
-</ul>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Vocab</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-   
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="home.html" class="btn btn-primary" float="right">Go Back</a>
+    <!-- class container used flex which was throwing everything off -->
+  <!-- <div class="container" > -->
+     <i class='fas fa-clipboard-check' style='font-size:48px;color:#6c63ff;margin-right:10px;margin-left:40px;'></i>
+     <!-- <i class="material-icons" style='font-size:48px;color:#6c63ff;'>computer</i> -->
+     <a class="navbar-brand" style="font-size: 36px; font-family:Lucida Handwriting;">Vocab Enhancement</a>
+     <div class="container" ></div>
+     <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
+</div>
+</nav>
+  <ul class="breadcrumb" >
+    <li style="margin-left:40px;"><a href="index.html">Home</a></li>
+    <li><a href="age.html">Age</a></li>
+    <li><a href="gender.html">Gender</a></li>
+    <li><a href="interest.html">Interest</a></li>
+    <li><a href="home.html">Search</a></li>
+  </ul>
   <br>
- 
   <div class="container">
     <br>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" id="searchText" type="search" placeholder="Cater" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="hitSearch()">Search</button>
     </form>
     <br>
 
     <h3 id="header">
       Cater
     </h3>
-    <button type="button" class="btn btn-light">Add to list</button>
-    <p id="pronunciation" class="font-weight-light">ca·ter ˈkādər </p>
+    <p id="pronunciation" class="font-weight-light"style="margin-left: 20px;" >ca·ter ˈkādər </p>
+   
     <div>
-      <p id="meaning">To cater means to supply food for meetings or celebrations. If you're having a big barbecue
+      <p id="meaning" style="margin-left: 20px;">To cater means to supply food for meetings or celebrations. If you're having a big barbecue
         party but would
         rather hang out with your friends than grill, you could pay someone to cater it.</p>
-      <p id="sentence">E.g.: The food at the concert gave me an upset stomach. They must have hired awful caterers.</p>
+      <p id="sentence" style="margin-left: 20px; color: #696969;font-style: italic;">"The food at the concert gave me an upset stomach. They must have hired awful caterers."</p>
     </div>
-
-
+  </div>
+  <br><br>
+  <div class="container">
+    <button type="button" class="btn btn-secondary">Add to list</button>
+    <a href="home.html" value="Go Back" class="btn btn-primary" float="left">Go Back</a>
   </div>
   <script>
     var m = getCookieValue("searchWord");
@@ -94,9 +112,12 @@ ul.breadcrumb li a:hover {
     // window.alert("url: " + url_request);
     console.log("url: " + url_request);
 
+    // replace the information based on the retrieved cookie
     document.getElementById("searchText").value = m;
-    // setting inner html - https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     document.getElementById("header").innerHTML = m;
+
+    // 
+    dictionaryLookUp(url_request);
 
     // https://www.w3schools.com/js/js_cookies.asp - extract cookie value
     function getCookieValue(cname) {
@@ -115,30 +136,42 @@ ul.breadcrumb li a:hover {
       return "";
     }
 
+    // someone hit enter or search button <== reset the cookie
+    function hitSearch() {
+      var searchText = document.getElementById("searchText").value;
+      document.cookie = "searchWord=" + searchText + ";";
+      var m = document.cookie;
 
-    // DICTIONARY LOOKUP - 
-    var meaning, pronunciation, sentence;
-    // window.alert("hitting the dictionary api....");
-    console.log("hitting the dictionary api....");
-    fetch(url_request)
-      .then(response => response.json())
-      .then(data => {
-        var firstDefinition = data[0];
-        pronunciation = firstDefinition.phonetic;
-        meaning = firstDefinition.meanings[0].definitions[0].definition;
-        sentence = firstDefinition.meanings[0].definitions[0].example;
+      document.location.href = "aftersearch.html";
+      return false; 
 
-        console.log(data[0]);
-        console.log("phonetic: " + pronunciation);
-        console.log("meaning: " + meaning);
-        console.log("sentence: " + sentence);
-
-        document.getElementById("pronunciation").innerHTML = pronunciation;
-        document.getElementById("meaning").innerHTML = meaning;
-        document.getElementById("sentence").innerHTML = "E.g.: " + sentence;
-      });
+    }
 
 
+
+    function dictionaryLookUp(url_request) {
+      // DICTIONARY LOOKUP - 
+      var meaning, pronunciation, sentence;
+      // window.alert("hitting the dictionary api....");
+      console.log("hitting the dictionary api....");
+      fetch(url_request)
+        .then(response => response.json())
+        .then(data => {
+          var firstDefinition = data[0];
+          pronunciation = firstDefinition.phonetic;
+          meaning = firstDefinition.meanings[0].definitions[0].definition;
+          sentence = firstDefinition.meanings[0].definitions[0].example;
+
+          console.log(data[0]);
+          console.log("phonetic: " + pronunciation);
+          console.log("meaning: " + meaning);
+          console.log("sentence: " + sentence);
+
+          document.getElementById("pronunciation").innerHTML = pronunciation;
+          document.getElementById("meaning").innerHTML = meaning;
+          document.getElementById("sentence").innerHTML = "\"" + sentence + "\"";
+        });
+    }
 
   </script>
 </body>

@@ -1,16 +1,17 @@
 <html>
 
 <head>
-  <title>VocabularyEnhancements/Home</title>
+  <title>VocabEnhancement/Home</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     ul.breadcrumb {
-      padding: 10px 16px;
+      padding: 10px 80px;
       list-style: none;
       background-color: #eee;
     }
@@ -43,6 +44,10 @@
   <link href="css/main.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
 
   <script>
     function logOut() {
@@ -56,26 +61,24 @@
 </head>
 
 <body>
-  <ul class="breadcrumb">
-    <li><a href="index.html">Home</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="flex-shrink: 0;">
+    <!-- class container used flex which was throwing everything off -->
+  <!-- <div class="container" > -->
+     <i class='fas fa-clipboard-check' style='font-size:48px;color:#6c63ff;margin-right:10px;margin-left:40px;'></i>
+     <!-- <i class="material-icons" style='font-size:48px;color:#6c63ff;'>computer</i> -->
+     <a class="navbar-brand" style="font-size: 36px; font-family:Lucida Handwriting;">Vocab Enhancement</a>
+<!-- </div> -->
+</nav>
+  <!-- style="padding: 0;
+  margin: 0;" -->
+  <ul class="breadcrumb" style="margin: 0;">
+    <li style="margin-left:40px;"><a href="index.html">Home</a></li>
     <li><a href="age.html">Age</a></li>
     <li><a href="gender.html">Gender</a></li>
     <li><a href="interest.html">Interest</a></li>
     <li><a href="home.html">Search</a></li>
   </ul>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand">Vocab Enhancement</a>
-      <button style="font-size:18px" onclick="logOut()">Log out <i class="fa fa-sign-out"></i>
-    </div>
-  </nav>
-
-
-  <!-- <a href="gender.html" class="btn btn-primary" float="right">Go Back</a> -->
   <div class="s006">
-    <!-- click the search button: triggers searchFunction -->
-    <!-- hit enter submits the form - does same thing as clicking search button -->
-    <!-- finally: search text gets passed as url parameter to the aftersearch.html -->
     <form onsubmit="hitEnter()">
       <fieldset>
         <legend>What are you looking for?</legend>
@@ -92,11 +95,11 @@
           </div>
         </div>
         <div class="suggestion-wrap">
-          <span id="span1" onclick="spanSearch('dedication')">Dedication</span>
-          <span id="span2" onclick="spanSearch('excelsior')">Excelsior</span>
-          <span id="span3" onclick="spanSearch('apropos')">Apropos</span>
-          <span id="span4" onclick="spanSearch('consort')">Consort</span>
-          <span id="span5" onclick="spanSearch('pragmatic')">Pragmatic</span>
+          <span id="span1" onclick="spanSearch('dedication')" style="cursor: pointer;">Dedication</span>
+          <span id="span2" onclick="spanSearch('excelsior')" style="cursor: pointer;">Excelsior</span>
+          <span id="span3" onclick="spanSearch('apropos')" style="cursor: pointer;">Apropos</span>
+          <span id="span4" onclick="spanSearch('consort')" style="cursor: pointer;">Consort</span>
+          <span id="span5" onclick="spanSearch('pragmatic')" style="cursor: pointer;">Pragmatic</span>
         </div>
       </fieldset>
       <br><br>
